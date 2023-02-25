@@ -14,11 +14,11 @@ export class PatientService {
   constructor(private http: HttpClient) { }
 
   getDepartmentsLst(): Observable<Departments_lst> {
-    return this.http.get<Departments_lst>(`${baseUrl}/patient/department_lst`);
+    return this.http.get<Departments_lst>(`${baseUrl}/PatientDepartment`);
   }
   
-  getContainsDepartment(deptName: any): Observable<String> {
-    return this.http.get<String>(`${baseUrl}/PatientDepartment?department_name=${deptName}`);
-  }
+  getContainsDepartment(deptName: string): Observable<string> {
+    return this.http.get(`${baseUrl}/patient?department_name=${deptName}`,{responseType: 'text'});
+  }
 
 }

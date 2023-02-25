@@ -14,7 +14,8 @@ export class PatientDepartmentsComponent implements OnInit {
   constructor(private patientService : PatientService) { 
     this.departmentsLst = new Array<string>;
     this.selectedIndex = -1;
-    this.departmentsLst = ['Dentist', 'Orthopedic', 'GeneralSurgeon'];
+    this.departmentsLst = [];
+    this.retrieveDepartments();
   }
 
   ngOnInit(): void {
@@ -24,8 +25,9 @@ export class PatientDepartmentsComponent implements OnInit {
     this.patientService.getDepartmentsLst()
       .subscribe({
         next: (data:any) => {
-          this.departmentsLst = data.lst;
-          // console.log(this.in_count_map);
+          this.departmentsLst = data;
+          console.log(this.departmentsLst);
+          console.log(data);
         },
         error: (e) => console.error(e)
       });
@@ -38,8 +40,14 @@ export class PatientDepartmentsComponent implements OnInit {
     else {
       this.patientService.getContainsDepartment(this.departmentsLst[this.selectedIndex])
         .subscribe({
-          next: (data:any) => {
-            this.departmentsLst = data.lst;
+          next: (data:String) => {
+            console.log(data);
+            if(data==="Success"){
+              alert("Doctors are available");
+            }
+            else if(data==="Failure"){
+              alert("Doctors are not available");
+            }
             // console.log(this.in_count_map);
           },
           error: (e) => console.error(e)
