@@ -10,11 +10,10 @@ export class PatientDepartmentsComponent implements OnInit {
 
   departmentsLst: Array<string>;
   selectedIndex: number;
-
   constructor(private patientService : PatientService) { 
     this.departmentsLst = new Array<string>;
     this.selectedIndex = -1;
-    this.departmentsLst = [];
+    // this.departmentsLst = ["allergist", "cardiologist", "chiropractor", " dentist", "pediatrician", "ophthalmologist"];
     this.retrieveDepartments();
   }
 
@@ -62,5 +61,16 @@ export class PatientDepartmentsComponent implements OnInit {
     console.log(this.selectedIndex);
 
     // do your logic here...
+  }
+
+
+  w3_close() {
+    var box = document.getElementsByClassName("w3-sidenav") as unknown as HTMLCollectionOf<HTMLElement>;
+    box[0].style.display="None"
+   
+  }
+  w3_open() {
+    var box = document.getElementsByClassName("w3-sidenav") as unknown as HTMLCollectionOf<HTMLElement>;
+    box[0].style.display="block"
   }
 }

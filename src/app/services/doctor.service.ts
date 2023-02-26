@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Departments_lst } from '../models/departments-lst.model';
+import { AvailabilityCheck } from '../models/availability-check.model';
 
 
 const baseUrl = 'http://localhost:8101';
@@ -13,8 +13,8 @@ export class DoctorService {
 
   constructor(private http: HttpClient) { }
 
-  getDepartmentsLst(): Observable<Departments_lst> {
-    return this.http.get<Departments_lst>(`${baseUrl}/patient/department_lst`);
+  putDoctorStatus(aval:AvailabilityCheck): Observable<string> {
+    return this.http.put(`${baseUrl}/DoctorAvailability`, aval, {responseType: 'text'});
   }
 
 }

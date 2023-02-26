@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DoctorDashboardComponent } from './components/doctor-dashboard/doctor-dashboard.component';
 import { PatientDepartmentsComponent } from './components/patient-departments/patient-departments.component';
+import { PatientDashboardComponent } from './components/patient-dashboard/patient-dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DoctorDashboardComponent,
-    PatientDepartmentsComponent
+    PatientDepartmentsComponent,
+    PatientDashboardComponent
   ],
   imports: [
     BrowserModule,
