@@ -12,6 +12,7 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 import { ViewDoctorsComponent } from './components/view-doctors/view-doctors.component';
 import { ViewAdminsComponent } from './components/view-admins/view-admins.component';
 import { AddAdminComponent } from './components/add-admin/add-admin.component';
+import { AddDoctorComponent } from './components/add-doctor/add-doctor.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AddAdminComponent } from './components/add-admin/add-admin.component';
     AdminDashboardComponent,
     ViewDoctorsComponent,
     ViewAdminsComponent,
-    AddAdminComponent
+    AddAdminComponent,
+    AddDoctorComponent
   ],
   imports: [
     BrowserModule,
