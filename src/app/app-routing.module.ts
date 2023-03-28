@@ -5,6 +5,7 @@ import { DoctorDashboardComponent } from './components/doctor-dashboard/doctor-d
 import { PatientDashboardComponent } from './components/patient-dashboard/patient-dashboard.component';
 import { PatientDepartmentsComponent } from './components/patient-departments/patient-departments.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { ViewDoctorsComponent } from './components/view-doctors/view-doctors.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'doctor-dashboard', component: DoctorDashboardComponent },
   { path: 'patient-departments', component: PatientDepartmentsComponent },
   { path: 'patient-dashboard', component: PatientDashboardComponent },
-  { path: 'admin-dashboard', component: AdminDashboardComponent}
+  { path: 'admin-dashboard', component: AdminDashboardComponent},
+  { path: 'view-doctors', component: ViewDoctorsComponent}
 ];
 
 @NgModule({

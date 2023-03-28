@@ -9,6 +9,7 @@ import { DoctorDashboardComponent } from './components/doctor-dashboard/doctor-d
 import { PatientDepartmentsComponent } from './components/patient-departments/patient-departments.component';
 import { PatientDashboardComponent } from './components/patient-dashboard/patient-dashboard.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { ViewDoctorsComponent } from './components/view-doctors/view-doctors.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
     DoctorDashboardComponent,
     PatientDepartmentsComponent,
     PatientDashboardComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    ViewDoctorsComponent
   ],
   imports: [
     BrowserModule,
