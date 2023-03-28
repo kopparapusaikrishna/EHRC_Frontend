@@ -15,7 +15,7 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
   getDoctorsLst(): Observable<Doctors_lst> {
-    return this.http.get<Doctors_lst>(`${baseUrl}/GetDoctorsLst`);
+    return this.http.get<Doctors_lst>(`${baseUrl}/GetDoctorsList`);
   }
 
   postDoctorDetails(doctorDetails: Doctor): Observable<string> {
