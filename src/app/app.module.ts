@@ -10,6 +10,9 @@ import { PatientDepartmentsComponent } from './components/patient-departments/pa
 import { PatientDashboardComponent } from './components/patient-dashboard/patient-dashboard.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { ViewDoctorsComponent } from './components/view-doctors/view-doctors.component';
+import { ViewAdminsComponent } from './components/view-admins/view-admins.component';
+import { AddAdminComponent } from './components/add-admin/add-admin.component';
+import { AddDoctorComponent } from './components/add-doctor/add-doctor.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { ViewDoctorsComponent } from './components/view-doctors/view-doctors.com
     PatientDepartmentsComponent,
     PatientDashboardComponent,
     AdminDashboardComponent,
-    ViewDoctorsComponent
+    ViewDoctorsComponent,
+    ViewAdminsComponent,
+    AddAdminComponent,
+    AddDoctorComponent
   ],
   imports: [
     BrowserModule,
