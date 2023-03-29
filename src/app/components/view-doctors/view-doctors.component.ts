@@ -18,7 +18,7 @@ export class ViewDoctorsComponent implements OnInit {
       name: "Mohan Babu",
       dob: new Date('2023-09-24'),
       gender: 'M',
-      doctor_start_date: new Date('0000-00-00'),
+      doctor_start_date: new Date('2012-09-24'),
       email_id: 'MohanBabu@gmai.com',
       password: '123456',
       qualification: 'MBBS',
@@ -31,7 +31,7 @@ export class ViewDoctorsComponent implements OnInit {
       name: "Ram Babu",
       dob: new Date('2023-09-4'),
       gender: 'M',
-      doctor_start_date: new Date('0000-00-00'),
+      doctor_start_date: new Date('2001-01-24'),
       email_id: 'RamBabu@gmai.com',
       password: '12345678',
       qualification: 'Degree',
@@ -40,15 +40,25 @@ export class ViewDoctorsComponent implements OnInit {
       clinic_address: 'Tadon Health Clinic, h block, Auto nagar, Hyderabad'
     };
 
-    this.doctorsLst = new Array(doct1, doct2);
+    this.doctorsLst = new Array();
 
     this.status = "";
 
-    // this.retrieveDoctors();
+    this.retrieveDoctors();
   }
 
   ngOnInit(): void {
     
+  }
+
+  getYearsSince(target_date: Date): number {
+    const now = new Date();
+    const years = now.getFullYear() - target_date.getFullYear();
+    const months = now.getMonth() - target_date.getMonth();
+    if (months < 0 || (months === 0 && now.getDate() < target_date.getDate())) {
+      return years - 1;
+    }
+    return years;
   }
 
   retrieveDoctors(): void {
@@ -68,19 +78,22 @@ export class ViewDoctorsComponent implements OnInit {
     var result = confirm("Are you sure you want to delete?");
 
     if(result) {
-      // this.adminService.delDoctor(doctorId)
-      // .subscribe({
-      //   next: (data:any) => {
-      //     this.status = data;
-      //     console.log(this.status);
-      //     // console.log(data);
-      //   },
-      //   error: (e) => console.error(e)
-      // });
-      console.log("Deleted");
-    }
-    else {
-      console.log("Not Deleted");
+      this.adminService.delDoctor(doctorId)
+      .subscribe({
+        next: (data:any) => {
+          this.status = data;
+          console.log(this.status);
+          // console.log(data);
+        },
+        error: (e) => console.error(e)
+      });
+
+      if(this.status==='Success') {
+        console.log("Deleted");
+      }
+      else {
+        console.log("Not Deleted");
+      }
     }
   }
 

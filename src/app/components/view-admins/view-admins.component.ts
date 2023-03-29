@@ -10,6 +10,8 @@ import { AdminService } from 'src/app/services/admin.service';
 export class ViewAdminsComponent implements OnInit {
   adminsLst: Array<Admin>;
 
+  status: string;
+
   constructor(private adminService : AdminService) {
     const admin1: Admin = {
       admin_id: 0,
@@ -31,9 +33,11 @@ export class ViewAdminsComponent implements OnInit {
       phone_number: '9848440827',
     };
 
-    this.adminsLst = new Array(admin1, admin2);
+    this.adminsLst = new Array();
 
-    // this.retrieveAdmins();
+    this.status = "";
+
+    this.retrieveAdmins();
   }
 
   ngOnInit(): void {
@@ -57,19 +61,22 @@ export class ViewAdminsComponent implements OnInit {
     var result = confirm("Are you sure you want to delete?");
 
     if(result) {
-      // this.adminService.delDoctor(adminId)
-      // .subscribe({
-      //   next: (data:any) => {
-      //     this.status = data;
-      //     console.log(this.status);
-      //     // console.log(data);
-      //   },
-      //   error: (e) => console.error(e)
-      // });
-      console.log("Deleted");
-    }
-    else {
-      console.log("Not Deleted");
+      this.adminService.delAdmin(adminId)
+      .subscribe({
+        next: (data:any) => {
+          this.status = data;
+          console.log(this.status);
+          // console.log(data);
+        },
+        error: (e) => console.error(e)
+      });
+
+      if(this.status === "Success") {
+        console.log("Deleted");
+      }
+      else{
+        console.log("Not Deleted");
+      }
     }
   }
 
