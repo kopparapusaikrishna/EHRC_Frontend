@@ -32,4 +32,12 @@ export class AdminService {
     return this.http.get<Admins_lst>(`${baseUrl}/GetAdminsList`);
   }
 
+  delDoctor(doctorId: number): Observable<string> {
+    return this.http.delete(`${baseUrl}/DeleteDoctor?doctorId=${doctorId}`,{responseType: 'text'})
+  }
+
+  delAdmin(adminId: number): Observable<string> {
+    return this.http.delete(`${baseUrl}/DeleteDoctor?doctorId=${adminId}`,{responseType: 'text'})
+  }
+
 }

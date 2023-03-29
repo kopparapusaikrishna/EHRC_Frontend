@@ -51,4 +51,26 @@ export class ViewAdminsComponent implements OnInit {
       });
   }
 
+  deleteAdmin(adminId: number): void {
+    console.log("called");
+    console.log(adminId);
+    var result = confirm("Are you sure you want to delete?");
+
+    if(result) {
+      // this.adminService.delDoctor(adminId)
+      // .subscribe({
+      //   next: (data:any) => {
+      //     this.status = data;
+      //     console.log(this.status);
+      //     // console.log(data);
+      //   },
+      //   error: (e) => console.error(e)
+      // });
+      console.log("Deleted");
+    }
+    else {
+      console.log("Not Deleted");
+    }
+  }
+
 }

@@ -54,15 +54,18 @@
     <div class="doctors-list">
 
         <h3 class="list-of-doctors">List of Doctors</h3>
-        <h3 class="add-doctor">Add Doctor</h3>
-        <a href="/add-doctor"><img src="../../../assets/plus.jpg" alt="Admin" class="plus"></a>
 
+        <div class="add-doctor">
+            <h3>Add Doctor</h3>
+            <a href="/add-doctor"><img src="../../../assets/plus.jpg" alt="Admin" class="plus"></a>
+        </div>
+        
         <div class="manage-doctor" *ngFor="let doct of doctorsLst; let index = index">
             <div class="doctor-details">
                 <div class="name">
                     <h4 class="name"> <b>Dr. {{doct.name}}</b> </h4>
                 </div>
-                <a href="" ><img src="../../../assets/trash-can.jpg" alt="Admin" class="delete-icon"></a>
+                <a role="button" (click)="deleteDoctor(doct.doctor_id)"><img src="../../../assets/trash-can.jpg" alt="Admin" class="delete-icon"></a>
                 <br>
                 <div class="sub-details">
                     <div class="h6-div"><h6 class="h6-details">{{doct.qualification}}, {{doct.department_name}}</h6></div>

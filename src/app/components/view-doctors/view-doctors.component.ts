@@ -10,6 +10,8 @@ import { AdminService } from 'src/app/services/admin.service';
 export class ViewDoctorsComponent implements OnInit {
   doctorsLst: Array<Doctor>;
 
+  status: string;
+
   constructor(private adminService : AdminService) { 
     const doct1: Doctor = {
       doctor_id: 0,
@@ -37,9 +39,12 @@ export class ViewDoctorsComponent implements OnInit {
       phone_number: '9123456799',
       clinic_address: 'Tadon Health Clinic, h block, Auto nagar, Hyderabad'
     };
-    this.doctorsLst = new Array();
 
-    this.retrieveDoctors();
+    this.doctorsLst = new Array(doct1, doct2);
+
+    this.status = "";
+
+    // this.retrieveDoctors();
   }
 
   ngOnInit(): void {
@@ -56,6 +61,27 @@ export class ViewDoctorsComponent implements OnInit {
         },
         error: (e) => console.error(e)
       });
+  }
+
+  deleteDoctor(doctorId: number): void {
+    console.log("Called");
+    var result = confirm("Are you sure you want to delete?");
+
+    if(result) {
+      // this.adminService.delDoctor(doctorId)
+      // .subscribe({
+      //   next: (data:any) => {
+      //     this.status = data;
+      //     console.log(this.status);
+      //     // console.log(data);
+      //   },
+      //   error: (e) => console.error(e)
+      // });
+      console.log("Deleted");
+    }
+    else {
+      console.log("Not Deleted");
+    }
   }
 
 }
