@@ -19,6 +19,8 @@
         }
     </style>
 </head>
+
+
 <body>
 
     <header class="w3-container w3-teal">
@@ -37,15 +39,15 @@
             <h3 style="width: auto; height:auto; margin-left: 15px; ">Tele Consultation Platform</h3>
         
             <hr size="3px">
-            <a href="tryit.asp-filename=tryw3css_sidenav_over.html#" style=" margin-bottom: 15px;"> Home</a>
+            <a href="/admin-dashboard" style=" margin-bottom: 15px;"> Dashboard</a>
             <br>		
-            <a href="tryit.asp-filename=tryw3css_sidenav_over.html#"  style=" margin-bottom: 15px;">Records</a>		
+            <a href="/view-doctors"  style=" margin-bottom: 15px;">View Doctors</a>		
             <br>
-            <a href="tryit.asp-filename=tryw3css_sidenav_over.html#"  style=" margin-bottom: 15px;">xxxx</a>		
+            <a href="/view-admins"  style=" margin-bottom: 15px;">View Admins</a>		
             <br>
-            <a href="tryit.asp-filename=tryw3css_sidenav_over.html#"  style=" margin-bottom: 15px;">xxxx</a>		
+            <a href="/admin-dashboard"  style=" margin-bottom: 15px;">Statistics</a>		
             <br>
-            <a href="tryit.asp-filename=tryw3css_sidenav_over.html#"  style=" margin-bottom: 15px;">SignOut</a>		
+            <a href="tryit.asp-filename=tryw3css_sidenav_over.html#"  style=" margin-bottom: 15px;">LogOut</a>	
         </div>
     </div>
     
@@ -55,9 +57,26 @@
 
         <h3 class="list-of-admins">List of Admins</h3>
         <h3 class="add-admin">Add Admin</h3>
-        <a href=""><img src="../../../assets/plus.jpg" alt="Admin" class="plus"></a>
+        <a href="add-admin"><img src="../../../assets/plus.jpg" alt="Admin" class="plus"></a>
 
-        <div class="manage-admin">
+        <div class="manage-admin" *ngFor="let admin of adminsLst; let index = index">
+            <div class="admin-details">
+                <div class="name">
+                    <h4 class="name"> <b>{{admin.name}}</b> </h4>
+                </div>
+                <a href="" ><img src="../../../assets/trash-can.jpg" alt="Admin" class="delete-icon"></a>
+                <br>
+                <div class="sub-details">
+                    <div class="h6-div"><h6 class="h6-details">Email ID : {{admin.email_id}}</h6></div>
+                    <div class="h6-div"><h6 class="h6-details">Phone Number: {{admin.phone_number}}</h6></div>
+                    <br>
+                </div>
+                <br>
+
+            </div>
+        </div>
+
+        <!-- <div class="manage-admin">
             <div class="admin-details">
                 <div class="name">
                     <h4 class="name"> <b>Admin 1</b> </h4>
@@ -109,7 +128,7 @@
 
             </div>
             
-        </div>
+        </div> -->
 
 
     </div>

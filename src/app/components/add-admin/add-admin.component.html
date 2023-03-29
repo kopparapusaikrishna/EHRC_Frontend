@@ -38,15 +38,15 @@
             <h3 style="width: auto; height:auto; margin-left: 15px; ">Tele Consultation Platform</h3>
         
             <hr size="3px">
-            <a href="tryit.asp-filename=tryw3css_sidenav_over.html#" style=" margin-bottom: 15px;"> Home</a>
+            <a href="/admin-dashboard" style=" margin-bottom: 15px;"> Dashboard</a>
             <br>		
-            <a href="tryit.asp-filename=tryw3css_sidenav_over.html#"  style=" margin-bottom: 15px;">Records</a>		
+            <a href="/view-doctors"  style=" margin-bottom: 15px;">View Doctors</a>		
             <br>
-            <a href="tryit.asp-filename=tryw3css_sidenav_over.html#"  style=" margin-bottom: 15px;">xxxx</a>		
+            <a href="/view-admins"  style=" margin-bottom: 15px;">View Admins</a>		
             <br>
-            <a href="tryit.asp-filename=tryw3css_sidenav_over.html#"  style=" margin-bottom: 15px;">xxxx</a>		
+            <a href="/admin-dashboard"  style=" margin-bottom: 15px;">Statistics</a>		
             <br>
-            <a href="tryit.asp-filename=tryw3css_sidenav_over.html#"  style=" margin-bottom: 15px;">SignOut</a>		
+            <a href="tryit.asp-filename=tryw3css_sidenav_over.html#"  style=" margin-bottom: 15px;">LogOut</a>		
         </div>
     </div>
     
@@ -59,7 +59,7 @@
         <br>
         <h6 class="enter-all-fields"><b>Enter all the Fields</b></h6>
 
-        <div class="form-fields">
+        <!-- <div class="form-fields">
             <div class="form">
                 <label for="name" class="attr-name">Name</label>
                 <br>
@@ -93,7 +93,42 @@
             </div>
             <br>
             <button class="btn btn-primary add-admin" type="submit">Add Admin</button>
-        </div>
+        </div> -->
+
+        <form class="center-form" (ngSubmit)="onSubmit()">
+            <div>
+              <label for="name" class="attr-name">Name:</label>
+              <input type="text" id="name" name="name" [(ngModel)]="name" required>
+            </div>
+            <div>
+              <label for="phone" class="attr-name">Phone number:</label>
+              <input type="tel" id="phone" name="phone" [(ngModel)]="ph_no" required>
+            </div>
+            <div>
+              <label for="dob" class="attr-name">Date of birth:</label>
+              <input type="date" id="dob" name="dob" [(ngModel)]="dob" required>
+            </div>
+            <div>
+              <label for="gender" class="attr-name">Gender:</label>
+              <select id="gender" name="gender" [(ngModel)]="gender" required>
+                <option value="">Select gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="email" class="attr-name">Email:</label>
+              <input type="email" id="email" name="email" [(ngModel)]="email_id" required>
+            </div>
+            <div>
+              <label for="password" class="attr-name">Password:</label>
+              <input type="password" id="password" name="password" [(ngModel)]="password" required>
+            </div>
+            <div>
+            <button class="btn btn-primary add-admin" type="submit">Add Admin</button>
+            </div>
+        </form>
 
     </div>
 

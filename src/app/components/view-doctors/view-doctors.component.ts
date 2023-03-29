@@ -12,6 +12,7 @@ export class ViewDoctorsComponent implements OnInit {
 
   constructor(private adminService : AdminService) { 
     const doct1: Doctor = {
+      doctor_id: 0,
       name: "Mohan Babu",
       dob: new Date('2023-09-24'),
       gender: 'M',
@@ -24,6 +25,7 @@ export class ViewDoctorsComponent implements OnInit {
       clinic_address: 'Tadon Health Clinic, k block, Gandhi nagar, Tirupathi'
     };
     const doct2: Doctor = {
+      doctor_id: 0,
       name: "Ram Babu",
       dob: new Date('2023-09-4'),
       gender: 'M',
@@ -35,12 +37,13 @@ export class ViewDoctorsComponent implements OnInit {
       phone_number: '9123456799',
       clinic_address: 'Tadon Health Clinic, h block, Auto nagar, Hyderabad'
     };
-    this.doctorsLst = new Array(doct1, doct2);
+    this.doctorsLst = new Array();
 
-    // this.retrieveDoctors();
+    this.retrieveDoctors();
   }
 
   ngOnInit(): void {
+    
   }
 
   retrieveDoctors(): void {

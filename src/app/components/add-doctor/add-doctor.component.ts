@@ -52,6 +52,7 @@ export class AddDoctorComponent implements OnInit {
     console.log("Password: " + this.password);
 
     const doct: Doctor = {
+      doctor_id: 0,
       name: this.name,
       dob: this.dob,
       gender: this.gender,
