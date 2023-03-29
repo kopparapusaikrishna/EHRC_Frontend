@@ -21,11 +21,11 @@ export class AdminService {
   }
 
   postDoctorDetails(doctorDetails: Doctor): Observable<string> {
-    return this.http.post<string>(`${baseUrl}/PostDoctorDetails`, doctorDetails);
+    return this.http.post(`${baseUrl}/PostDoctorDetails`, doctorDetails, {responseType: 'text'});
   }
 
   postAdminDetails(adminDetails: Admin): Observable<string> {
-    return this.http.post<string>(`${baseUrl}/PostAdminDetails`, adminDetails);
+    return this.http.post(`${baseUrl}/PostAdminDetails`, adminDetails, {responseType: 'text'});
   }
 
   getAdminsLst(): Observable<Admins_lst> {
@@ -37,7 +37,11 @@ export class AdminService {
   }
 
   delAdmin(adminId: number): Observable<string> {
-    return this.http.delete(`${baseUrl}/DeleteDoctor?doctorId=${adminId}`,{responseType: 'text'})
+    return this.http.delete(`${baseUrl}/DeleteAdmin?adminId=${adminId}`,{responseType: 'text'})
+  }
+
+  getNoOfConsultations(doctorId: number, noOfDays: number): Observable<number> {
+    return this.http.get<number>(`${baseUrl}/NoOfConsultations?doctorId=${doctorId}&noOfDays=${noOfDays}`)
   }
 
 }

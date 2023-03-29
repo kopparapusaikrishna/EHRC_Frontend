@@ -8,9 +8,17 @@ import { AdminService } from 'src/app/services/admin.service';
   styleUrls: ['./view-doctors.component.sass']
 })
 export class ViewDoctorsComponent implements OnInit {
-  doctorsLst: Array<Doctor>;
 
+  consults: Map<number, [number, number, boolean]>; //days, no_of_consultings, display 
+
+  doctorsLst: Array<Doctor>;
   status: string;
+
+  no_of_days: number;
+  check: boolean;
+  no_of_consults: number;
+
+  doctor_id: number;
 
   constructor(private adminService : AdminService) { 
     const doct1: Doctor = {
@@ -27,7 +35,7 @@ export class ViewDoctorsComponent implements OnInit {
       clinic_address: 'Tadon Health Clinic, k block, Gandhi nagar, Tirupathi'
     };
     const doct2: Doctor = {
-      doctor_id: 0,
+      doctor_id: 1,
       name: "Ram Babu",
       dob: new Date('2023-09-4'),
       gender: 'M',
@@ -40,15 +48,31 @@ export class ViewDoctorsComponent implements OnInit {
       clinic_address: 'Tadon Health Clinic, h block, Auto nagar, Hyderabad'
     };
 
-    this.doctorsLst = new Array();
+    this.doctorsLst = new Array(doct1, doct2);
 
     this.status = "";
+    this.consults = new Map<number, [number, number, boolean]>();
 
-    this.retrieveDoctors();
+    this.no_of_days = 0;
+    this.check = false;
+    this.no_of_consults = 0;
+
+    this.doctor_id = -1;
+
+    // this.retrieveDoctors();
   }
 
   ngOnInit(): void {
     
+  }
+
+  checkIf(doctorId: number): boolean {
+    if(doctorId == this.doctor_id) {
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 
   getYearsSince(target_date: Date): number {
@@ -71,6 +95,10 @@ export class ViewDoctorsComponent implements OnInit {
         },
         error: (e) => console.error(e)
       });
+
+    for(let i=0; i<this.doctorsLst.length; i++) {
+      this.consults.set(this.doctorsLst[i].doctor_id, [0, 0, false]);
+    }
   }
 
   deleteDoctor(doctorId: number): void {
@@ -84,17 +112,34 @@ export class ViewDoctorsComponent implements OnInit {
           this.status = data;
           console.log(this.status);
           // console.log(data);
+
+          if(this.status === "Success") {
+            console.log("Deleted");
+          }
+          else{
+            console.log("Not Deleted");
+          }
         },
         error: (e) => console.error(e)
       });
 
-      if(this.status==='Success') {
-        console.log("Deleted");
-      }
-      else {
-        console.log("Not Deleted");
-      }
     }
+  }
+
+
+  retriveNoOfConsultations(doctorId: number): void {
+    console.log(doctorId);
+    this.doctor_id = doctorId;
+    this.adminService.getNoOfConsultations(doctorId, this.no_of_days)
+    .subscribe({
+      next: (data:any) => {
+        console.log(this.no_of_days);
+        console.log(data);
+        this.no_of_consults = data;
+      },
+      error: (e) => console.error(e)
+    });
+    this.no_of_consults = 10; 
   }
 
 }

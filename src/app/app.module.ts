@@ -13,6 +13,8 @@ import { ViewDoctorsComponent } from './components/view-doctors/view-doctors.com
 import { ViewAdminsComponent } from './components/view-admins/view-admins.component';
 import { AddAdminComponent } from './components/add-admin/add-admin.component';
 import { AddDoctorComponent } from './components/add-doctor/add-doctor.component';
+import { UserProfilesComponent } from './components/user-profiles/user-profiles.component';
+import { AddProfileComponent } from './components/add-profile/add-profile.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { AddDoctorComponent } from './components/add-doctor/add-doctor.component
     ViewDoctorsComponent,
     ViewAdminsComponent,
     AddAdminComponent,
-    AddDoctorComponent
+    AddDoctorComponent,
+    UserProfilesComponent,
+    AddProfileComponent
   ],
   imports: [
     BrowserModule,

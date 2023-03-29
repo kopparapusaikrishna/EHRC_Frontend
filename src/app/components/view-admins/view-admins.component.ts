@@ -67,16 +67,17 @@ export class ViewAdminsComponent implements OnInit {
           this.status = data;
           console.log(this.status);
           // console.log(data);
+
+          if(this.status === "Success") {
+            console.log("Deleted");
+          }
+          else{
+            console.log("Not Deleted");
+          }
         },
         error: (e) => console.error(e)
       });
 
-      if(this.status === "Success") {
-        console.log("Deleted");
-      }
-      else{
-        console.log("Not Deleted");
-      }
     }
   }
 

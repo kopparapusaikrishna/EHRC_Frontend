@@ -9,6 +9,8 @@ import { ViewDoctorsComponent } from './components/view-doctors/view-doctors.com
 import { ViewAdminsComponent } from './components/view-admins/view-admins.component';
 import { AddAdminComponent } from './components/add-admin/add-admin.component';
 import { AddDoctorComponent } from './components/add-doctor/add-doctor.component';
+import { UserProfilesComponent } from './components/user-profiles/user-profiles.component';
+import { AddProfileComponent } from './components/add-profile/add-profile.component';
 
 
 const routes: Routes = [
@@ -20,7 +22,9 @@ const routes: Routes = [
   { path: 'view-doctors', component: ViewDoctorsComponent},
   { path: 'view-admins', component: ViewAdminsComponent},
   { path: 'add-admin', component: AddAdminComponent},
-  { path: 'add-doctor', component: AddDoctorComponent}
+  { path: 'add-doctor', component: AddDoctorComponent},
+  { path: 'profiles', component: UserProfilesComponent},
+  { path: 'add-profile', component: AddProfileComponent}
 ];
 
 @NgModule({
