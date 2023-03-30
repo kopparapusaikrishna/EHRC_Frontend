@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+const baseUrl = 'http://localhost:8101';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,10 +18,10 @@ getAdminData(username: string,password: string) {
 }
 
 PatientOTP(phoneNumber:string) {
-    return this.http.post('http://localhost:8081/Patient/sendOTP',phoneNumber);
+    return this.http.get(`${baseUrl}/sendOTP?phoneNumber=${phoneNumber}`);
 }
 PatientVerifyOTP(phoneNumber:string,otp:string) {
-    return this.http.post('http://localhost:8081/Patient/VerifyOTP',{phoneNumber,otp});
+    return this.http.get(`${baseUrl}/verifyOTP?phoneNumber=${phoneNumber}&otp=${otp}`);
 }
 }
 

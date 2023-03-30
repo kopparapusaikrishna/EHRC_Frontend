@@ -25,12 +25,12 @@ export class PatientLoginComponent implements OnInit {
     this.loginservice.PatientOTP(this.phone_number)
       .subscribe((response:  any) => {
         // Verify OTP entered by user
-        if (response==1) {
+        if (response === "pending") {
           // Authenticate user and log them in
-          console.log(' successful!');
+          alert('OTP sent successfully.');
         } 
         else {
-          console.log('OTP sending failed!');
+          alert('OTP sending failed!');
         }
       });
   }
@@ -41,11 +41,11 @@ export class PatientLoginComponent implements OnInit {
     this.loginservice.PatientVerifyOTP(this.phone_number,this.otp)
       .subscribe((response:  any) => {
         // Verify OTP entered by user
-        if (response['otp']==this.otp) {
+        if (response === "approved") {
           // Authenticate user and log them in
-          console.log(' Authentication successful!');
+          alert(' Authentication successful!');
         } else {
-          console.log('OTP incorrect');
+          alert('OTP incorrect');
         }
       });
   }
