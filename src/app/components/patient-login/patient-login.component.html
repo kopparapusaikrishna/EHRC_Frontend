@@ -28,14 +28,17 @@
 
     <div class="form-container">
         <h2 class="form-title">Login</h2>
-        <form>
+        <form (ngSubmit)="sendOTP()">
           <label for="phone">Phone number:</label>
-          <input type="tel" id="phone" name="phone" placeholder="Enter phone number" [(ngModel)]="phone_number" required>
-          <button type="submit" (click)="sendOTP()">Send OTP</button><br><br>
+          <input type="tel" id="phone" name="phone_number" placeholder="Enter phone number" [(ngModel)]="model.phone_number" [ngModelOptions]="{standalone: true}" required>
+          <button type="submit">Send OTP</button><br><br>
+        </form>
+
+        <form (ngSubmit)="verifyOTP()">
           <label for="otp">OTP:</label>
-          <input type="text" id="otp" name="otp" placeholder="Enter OTP" required>
+          <input type="text" id="otp" name="otp" placeholder="Enter OTP" [(ngModel)]="model.otp" [ngModelOptions]="{standalone: true}" required>
           
-          <button type="submit" [(ngModel)]="otp" (click)="verifyOTP()">Verify OTP  </button>
+          <button type="submit">Verify OTP  </button>
         </form>
       </div>
    </div>

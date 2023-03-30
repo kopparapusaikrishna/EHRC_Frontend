@@ -30,7 +30,7 @@ export class DoctorLoginComponent implements OnInit {
             this.getData=res;
             console.log(this.getData);
             if (this.getData==true){
-                this.router.navigate(["/DashBoard"]);
+                this.router.navigate(["/doctor-dashboard"]);
             }
             else{
               alert("Invalid username and password");

@@ -18,7 +18,7 @@ import { UserSelectComponent } from './components/user-select/user-select.compon
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'patient-dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'doctor-dashboard', component: DoctorDashboardComponent },
   { path: 'patient-departments', component: PatientDepartmentsComponent },
   { path: 'patient-dashboard', component: PatientDashboardComponent },
@@ -32,7 +32,7 @@ const routes: Routes = [
   { path:'Doctor', component:DoctorLoginComponent},
   { path:'Patient', component:PatientLoginComponent},
   { path:'Admin', component:AdminLoginComponent},
-  { path: 'user-select', component: UserSelectComponent}
+  { path: 'home', component: UserSelectComponent}
 ];
 
 @NgModule({

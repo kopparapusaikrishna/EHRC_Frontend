@@ -25,11 +25,11 @@ export class AdminLoginComponent implements OnInit {
     if (user== null || password == null)
         alert("Please fill all the fields");
     else{
-      this.loginservice.getDoctorData(user,password)
+      this.loginservice.getAdminData(user,password)
       .subscribe((res: any) => {
           this.getData=res;
           if (this.getData==true){
-              this.router.navigate(["/Security"]);
+              this.router.navigate(["/admin-dashboard"]);
           }
           else{
             alert("Invalid username and password");
