@@ -78,7 +78,7 @@ export class AddDoctorComponent implements OnInit {
         console.log(this.status);
         // console.log(data);
         if(this.status === "Success") {
-          alert('this.status');
+          alert(this.status);
           this.name = "";
           this.ph_no = "";
           this.dob = new Date('0000-00-00');

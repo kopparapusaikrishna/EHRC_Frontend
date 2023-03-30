@@ -48,7 +48,7 @@ export class ViewDoctorsComponent implements OnInit {
       clinic_address: 'Tadon Health Clinic, h block, Auto nagar, Hyderabad'
     };
 
-    this.doctorsLst = new Array(doct1, doct2);
+    this.doctorsLst = new Array();
 
     this.status = "";
     this.consults = new Map<number, [number, number, boolean]>();

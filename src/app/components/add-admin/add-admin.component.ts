@@ -60,7 +60,7 @@ export class AddAdminComponent implements OnInit {
         // console.log(data);
 
         if(this.status === "Success") {
-          alert('this.status');
+          alert(this.status);
           this.name = "";
           this.ph_no = "";
           this.dob = new Date('0000-00-00');
