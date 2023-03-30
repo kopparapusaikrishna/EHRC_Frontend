@@ -14,6 +14,7 @@ import { AddProfileComponent } from './components/add-profile/add-profile.compon
 import { DoctorLoginComponent } from './components/doctor-login/doctor-login.component';
 import { PatientLoginComponent } from './components/patient-login/patient-login.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { UserSelectComponent } from './components/user-select/user-select.component';
 
 
 const routes: Routes = [
@@ -28,9 +29,10 @@ const routes: Routes = [
   { path: 'add-doctor', component: AddDoctorComponent},
   { path: 'profiles', component: UserProfilesComponent},
   { path: 'add-profile', component: AddProfileComponent},
-  {path:'Doctor', component:DoctorLoginComponent},
-  {path:'Patient', component:PatientLoginComponent},
-  {path:'Admin', component:AdminLoginComponent}
+  { path:'Doctor', component:DoctorLoginComponent},
+  { path:'Patient', component:PatientLoginComponent},
+  { path:'Admin', component:AdminLoginComponent},
+  { path: 'user-select', component: UserSelectComponent}
 ];
 
 @NgModule({

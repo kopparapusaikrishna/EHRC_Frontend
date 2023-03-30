@@ -58,6 +58,20 @@ export class AddAdminComponent implements OnInit {
         this.status = data;
         console.log(this.status);
         // console.log(data);
+
+        if(this.status === "Success") {
+          alert('this.status');
+          this.name = "";
+          this.ph_no = "";
+          this.dob = new Date('0000-00-00');
+          this.gender = "";
+          this.email_id = "";
+          this.password = "";
+
+        }
+        else {
+          alert(this.status);
+        }
       },
       error: (e) => console.error(e)
     });

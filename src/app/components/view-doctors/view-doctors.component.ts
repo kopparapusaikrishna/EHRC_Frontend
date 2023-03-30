@@ -59,7 +59,7 @@ export class ViewDoctorsComponent implements OnInit {
 
     this.doctor_id = -1;
 
-    // this.retrieveDoctors();
+    this.retrieveDoctors();
   }
 
   ngOnInit(): void {

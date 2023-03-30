@@ -77,6 +77,23 @@ export class AddDoctorComponent implements OnInit {
         this.status = data;
         console.log(this.status);
         // console.log(data);
+        if(this.status === "Success") {
+          alert('this.status');
+          this.name = "";
+          this.ph_no = "";
+          this.dob = new Date('0000-00-00');
+          this.gender = "";
+          this.clinic_address = "";
+          this.qualification = "";
+          this.doctor_start_date = new Date('0000-00-00');
+          this.dept_name = "";
+          this.email = "";
+          this.password = "";
+          this.status = "";
+        }
+        else {
+          alert(this.status);
+        }
       },
       error: (e) => console.error(e)
     });
