@@ -11,6 +11,9 @@ import { AddAdminComponent } from './components/add-admin/add-admin.component';
 import { AddDoctorComponent } from './components/add-doctor/add-doctor.component';
 import { UserProfilesComponent } from './components/user-profiles/user-profiles.component';
 import { AddProfileComponent } from './components/add-profile/add-profile.component';
+import { DoctorLoginComponent } from './components/doctor-login/doctor-login.component';
+import { PatientLoginComponent } from './components/patient-login/patient-login.component';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 
 
 const routes: Routes = [
@@ -24,7 +27,10 @@ const routes: Routes = [
   { path: 'add-admin', component: AddAdminComponent},
   { path: 'add-doctor', component: AddDoctorComponent},
   { path: 'profiles', component: UserProfilesComponent},
-  { path: 'add-profile', component: AddProfileComponent}
+  { path: 'add-profile', component: AddProfileComponent},
+  {path:'Doctor', component:DoctorLoginComponent},
+  {path:'Patient', component:PatientLoginComponent},
+  {path:'Admin', component:AdminLoginComponent}
 ];
 
 @NgModule({

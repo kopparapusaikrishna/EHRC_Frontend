@@ -15,6 +15,9 @@ import { AddAdminComponent } from './components/add-admin/add-admin.component';
 import { AddDoctorComponent } from './components/add-doctor/add-doctor.component';
 import { UserProfilesComponent } from './components/user-profiles/user-profiles.component';
 import { AddProfileComponent } from './components/add-profile/add-profile.component';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { DoctorLoginComponent } from './components/doctor-login/doctor-login.component';
+import { PatientLoginComponent } from './components/patient-login/patient-login.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { AddProfileComponent } from './components/add-profile/add-profile.compon
     AddAdminComponent,
     AddDoctorComponent,
     UserProfilesComponent,
-    AddProfileComponent
+    AddProfileComponent,
+    AdminLoginComponent,
+    DoctorLoginComponent,
+    PatientLoginComponent
   ],
   imports: [
     BrowserModule,
