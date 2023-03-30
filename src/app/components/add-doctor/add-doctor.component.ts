@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
 import { Doctor } from 'src/app/models/doctor.models';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-add-doctor',
@@ -16,7 +18,7 @@ export class AddDoctorComponent implements OnInit {
   qualification: string;
   doctor_start_date: Date;
   dept_name: string;
-  email_id: string;
+  email: string;
   password: string;
 
   status: string;
@@ -30,13 +32,17 @@ export class AddDoctorComponent implements OnInit {
     this.qualification = "";
     this.doctor_start_date = new Date('0000-00-00');
     this.dept_name = "";
-    this.email_id = "";
+    this.email = "";
     this.password = "";
     this.status = "";
   }
 
   ngOnInit(): void {
   }
+
+  emailForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email])
+  });
 
   onSubmit(): void {
     console.log("Form submitted!");
@@ -48,7 +54,7 @@ export class AddDoctorComponent implements OnInit {
     console.log("Qualification: " + this.qualification);
     console.log("Doctor Start date: " + this.doctor_start_date)
     console.log("Department: " + this.dept_name);
-    console.log("Email: " + this.email_id);
+    console.log("Email: " + this.email);
     console.log("Password: " + this.password);
 
     const doct: Doctor = {
@@ -57,7 +63,7 @@ export class AddDoctorComponent implements OnInit {
       dob: this.dob,
       gender: this.gender,
       doctor_start_date: this.doctor_start_date,
-      email_id: this.email_id,
+      email_id: this.email,
       password: this.password,
       qualification: this.qualification,
       department_name: this.dept_name,

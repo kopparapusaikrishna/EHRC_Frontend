@@ -1,4 +1,4 @@
 export class AvailabilityCheck {
-    doctorId? : string;
+    doctorId? : number;
     status? : boolean;
 }

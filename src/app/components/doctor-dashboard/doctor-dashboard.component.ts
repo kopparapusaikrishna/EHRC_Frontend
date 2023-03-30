@@ -28,7 +28,7 @@ export class DoctorDashboardComponent implements OnInit {
     console.log(this.available);
 
     let aval = new AvailabilityCheck();
-    aval.doctorId = "Doctor1";
+    aval.doctorId = 1;
     aval.status = this.available;
     console.log(aval);
 
