@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginserviceService } from 'src/app/services/loginservice.service';
-
+import jwt_decode from 'jwt-decode';
 @Component({
   selector: 'app-patient-login',
   templateUrl: './patient-login.component.html',
@@ -11,7 +11,8 @@ import { LoginserviceService } from 'src/app/services/loginservice.service';
 export class PatientLoginComponent implements OnInit {
 
   model={phone_number:"",otp:""};
-  
+  otp_sent=false;
+  a:string | null | undefined
   constructor(private loginservice:LoginserviceService,private router : Router) {
   
   }
@@ -34,6 +35,7 @@ export class PatientLoginComponent implements OnInit {
         }
       },
     });
+    this.otp_sent=true;
   }
 
   verifyOTP() {
@@ -42,12 +44,14 @@ export class PatientLoginComponent implements OnInit {
     this.loginservice.PatientVerifyOTP(this.model.phone_number,this.model.otp)
       .subscribe((response:  any) => {
         // Verify OTP entered by user
-        if (response == 1) {
+        //console.log(response);
+        if (response.token == "not") {
           // Authenticate user and log them in
-          alert(' Authentication successful!');
-          this.router.navigate(["/profiles"]);
+          alert('OTP incorrect!');
+          this.router.navigate(["/Patient"]);
         } else {
-          alert('OTP incorrect');
+          localStorage.setItem("patient_token",JSON.stringify({patient_details:this.model,token:response.token}));
+          this.router.navigate(["/profiles"]);
         }
       });
   }

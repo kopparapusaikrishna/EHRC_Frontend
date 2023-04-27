@@ -19,17 +19,16 @@
         }
     </style>
 </head>
-<body>
+<body >
 
     <header class="w3-container w3-teal">
     <div>
         <button class="btn btn-primary navbar" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">&#9776;</button>
         <h2 class="web-name">Tele Consultation Platform</h2>
-        <div  class="heading">Admin:Admin-name</div>
     </div>
     
     
-    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div  class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
         <div class="offcanvas-header">
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
@@ -52,10 +51,26 @@
     </header>
 
 
-    <h3 class="mobile">Mobile No. - 1234567890</h3>
-
+    <h3 class="mobile">Ph.No:{{phone_number}}</h3>
+    <div *ngIf="showpin">
     <div class="profiles">
         <h2>Profiles</h2>
+        <div *ngFor="let profile of profile_lst; let i = index"  >
+            <div class="profile">
+                <img src="../../../assets/profile.png" alt="profile" class="profile-img">
+                <div class="name-div">
+                    <h5 class="name">{{profile.patientName}}</h5>
+                    
+                </div> 
+                <div class="buttons">
+                    <button class="btn edit-btn" (click)="deleteProfile(profile.patientId)">Delete</button>
+                    <a class="redirect-btn" role="button" (click)="goTopatientDashboard(profile)"><img src="../../../assets/redirect.png" alt="redirect" class="redirect"></a>
+                </div>
+                
+            </div>
+        </div>
+        
+      <!--
         <div class="profile">
             <img src="../../../assets/profile.png" alt="profile" class="profile-img">
             <div class="name-div">
@@ -76,29 +91,29 @@
                 <hr>
             </div> 
             <div class="buttons">
-                <button class="btn edit-btn">Edit</button>
+                <button class="btn edit-btn" >Edit</button>
                 <a class="redirect-btn" role="button"><img src="../../../assets/redirect.png" alt="redirect" class="redirect"></a>
             </div>
             
         </div>
-
-        <div class="profile">
-            <img src="../../../assets/profile.png" alt="profile" class="profile-img">
-            <div class="name-div">
-                <h5 class="name">Name 1</h5>
-                <hr>
-            </div> 
-            <div class="buttons">
-                <button class="btn edit-btn">Edit</button>
-                <a class="redirect-btn" role="button"><img src="../../../assets/redirect.png" alt="redirect" class="redirect"></a>
-            </div>
-            
-        </div>
-
+-->
         <button class="btn select" onclick="window.location.href='/add-profile';">Add Profile</button>
 
     </div>
-
+</div>
+<div *ngIf="!showpin" style="border: 5px grey; background-color : rgb(102, 89, 89); color: white; margin-top: 15%; margin-left: 35%; width: 30%; padding: 5px 5px 5px 5px; padding-top: 5%; padding-bottom: 0%; padding-left: 0%;">
+   
+    <label for="pin" style="margin-right: 1%; margin-left:8%">Enter your PIN:</label>
+    <input type="password" id="pin" name="pin"  pattern="[0-9]{4}" [(ngModel)]="pin" required>
+   
+    <br>
+    <button type="submit" (click)="getuserpin()" style="border:2px; padding:8px 8px 8px 8px ; background-color : black; color: white; margin-top : 2%; margin-left: 45%;">submit</button>
+ <div class="callout" data-closable style="margin-top : 0%">
+        <button (click)="closepopup()" style="border:2px; padding:8px 8px 8px 8px ; background-color : black; color: white; margin-top : 0%; margin-left: 0% ;" class="close-button" aria-label="Close alert" type="button" data-close>
+         close
+        </button>
+    </div>
+</div>
     
 
 </body>

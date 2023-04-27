@@ -22,19 +22,21 @@ export class AdminLoginComponent implements OnInit {
     //console.log("sff");
     let user=this.model.username;
     let password=this.model.password;
-    if (user== null || password == null)
+    if (user== "" || password == "")
         alert("Please fill all the fields");
     else{
       this.loginservice.getAdminData(user,password)
-      .subscribe((res: any) => {
-          this.getData=res;
-          if (this.getData==true){
-              this.router.navigate(["/admin-dashboard"]);
+        .subscribe((response: any) => {
+          console.log(response);
+          console.log("fsfsf");
+          if (response.token == "not") {
+            // Authenticate user and log them in
+            alert('username and password doesnt match!');
+          } else {
+            localStorage.setItem("admin_token",response.token);
+            this.router.navigate(["/admin-dashboard"]);
           }
-          else{
-            alert("Invalid username and password");
-          }
-      })
+        })
 
     }
   } 

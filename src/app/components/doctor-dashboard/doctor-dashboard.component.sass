@@ -1,3 +1,28 @@
+$primary-color: black
+$secondary-color: lightgrey
+$font-size: medium
+
+body
+    width: 100%
+    height: 100%
+    padding-bottom: 100%
+   
+.navbar-custom
+    background-color:darkslategray
+
+
+.navbar-custom .navbar-brand,
+        .navbar-custom .navbar-text,  .navbar-custom .nav-link
+            color: white
+
+
+.name
+    padding-top: 0.3125rem
+    display: inline-block
+    justify-content: right
+    margin: 0 0 0 auto
+
+
 .topsection
     display:flex
     border-bottom: 6px
@@ -5,11 +30,21 @@
     padding-bottom: 4%
     border-color: black
 
+.full-header
+    background-color: #434547
+
+.menu
+    color: white
+
 .heading
     margin-left: 70%
     font-size: 25px
 
+.navbar
+    background-color: #0a192f
 
+.container
+    background-color: #0a192f
 .Available-status
     position: absolute
     width: 268px
@@ -127,3 +162,13 @@ p
 .w3-sidenav w3-white w3-card-2
         background-color: black
 
+button.visit-patient 
+    padding: 10px 20px
+    border: none
+    background-color: green
+    color: white
+    font-size: $font-size
+    cursor: pointer
+    
+    &:hover 
+      opacity: 0.8

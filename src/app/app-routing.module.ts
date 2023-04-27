@@ -15,19 +15,22 @@ import { DoctorLoginComponent } from './components/doctor-login/doctor-login.com
 import { PatientLoginComponent } from './components/patient-login/patient-login.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { UserSelectComponent } from './components/user-select/user-select.component';
+import { AuthGuard } from './auth.guard';
+import { DoctorauthguardGuard } from './authguards/doctorauthguard.guard';
+import { AdminauthguardGuard } from './authguards/adminauthguard.guard';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'doctor-dashboard', component: DoctorDashboardComponent },
-  { path: 'patient-departments', component: PatientDepartmentsComponent },
-  { path: 'patient-dashboard', component: PatientDashboardComponent },
-  { path: 'admin-dashboard', component: AdminDashboardComponent},
-  { path: 'view-doctors', component: ViewDoctorsComponent},
-  { path: 'view-admins', component: ViewAdminsComponent},
-  { path: 'add-admin', component: AddAdminComponent},
-  { path: 'add-doctor', component: AddDoctorComponent},
-  { path: 'profiles', component: UserProfilesComponent},
+  { path: 'doctor-dashboard', component: DoctorDashboardComponent,canActivate:[DoctorauthguardGuard]},
+  { path: 'patient-departments', component: PatientDepartmentsComponent,canActivate:[AuthGuard]},
+  { path: 'patient-dashboard', component: PatientDashboardComponent,canActivate: [AuthGuard]  },
+  { path: 'admin-dashboard', component: AdminDashboardComponent,canActivate:[AdminauthguardGuard]},
+  { path: 'view-doctors', component: ViewDoctorsComponent,canActivate:[DoctorauthguardGuard]},
+  { path: 'view-admins', component: ViewAdminsComponent,canActivate:[AdminauthguardGuard]},
+  { path: 'add-admin', component: AddAdminComponent,canActivate:[AdminauthguardGuard]},
+  { path: 'add-doctor', component: AddDoctorComponent,canActivate:[AdminauthguardGuard]},
+  { path: 'profiles', component: UserProfilesComponent,canActivate:[AuthGuard]},
   { path: 'add-profile', component: AddProfileComponent},
   { path:'Doctor', component:DoctorLoginComponent},
   { path:'Patient', component:PatientLoginComponent},

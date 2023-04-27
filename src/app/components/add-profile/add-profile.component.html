@@ -107,22 +107,18 @@
             <button class="btn btn-primary add-admin" type="submit">Add Doctor</button>
         </div> -->
 
-        <form class="center-form">
+        <form class="center-form" (ngSubmit)="onSubmit()">
             <div>
               <label for="name" class="attr-name">Name:</label>
-              <input type="text" id="name" name="name" required>
-            </div>
-            <div>
-              <label for="phone" class="attr-name">Phone number:</label>
-              <input type="tel" id="phone" name="phone" required>
+              <input type="text" id="name" name="name" [(ngModel)]="name" required>
             </div>
             <div>
               <label for="dob" class="attr-name">Date of birth:</label>
-              <input type="date" id="dob" name="dob" required>
+              <input type="date" id="dob" name="dob" [(ngModel)]="dob" required>
             </div>
             <div>
               <label for="gender" class="attr-name">Gender:</label>
-              <select id="gender" name="gender" required>
+              <select id="gender" name="gender" [(ngModel)]="gender" required>
                 <option value="">Select gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -131,10 +127,14 @@
             </div>
             <div>
               <label for="address" class="attr-name">Location:</label>
-              <textarea id="address" name="address" required></textarea>
+              <textarea id="address" name="address" [(ngModel)]="location" required></textarea>
             </div>
             <div>
-            <button class="btn btn-primary add-admin" type="submit">Add Profile</button>
+                <label for="dob" class="attr-name">Profile-pin:</label>
+                <input type="text" id="pin" name="pin" [(ngModel)]="pin" required>
+              </div>
+            <div>
+               <button class="btn btn-primary add-admin" type="submit" onclick="location.href='/profiles'">Add Profile</button>
             </div>
         </form>
 
@@ -142,4 +142,6 @@
 
 
 </body>
-</html> 
+</html>
+
+<!-- onclick="location.href='/profiles'" -->

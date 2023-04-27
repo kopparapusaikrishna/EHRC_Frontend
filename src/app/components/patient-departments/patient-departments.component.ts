@@ -10,11 +10,13 @@ export class PatientDepartmentsComponent implements OnInit {
 
   departmentsLst: Array<string>;
   selectedIndex: number;
+  patient_details:any;
   constructor(private patientService : PatientService) { 
     this.departmentsLst = new Array<string>;
     this.selectedIndex = -1;
     // this.departmentsLst = ["allergist", "cardiologist", "chiropractor", " dentist", "pediatrician", "ophthalmologist"];
     this.retrieveDepartments();
+    this.patient_details = JSON.parse(localStorage.getItem("patient_details")!);
   }
 
   ngOnInit(): void {

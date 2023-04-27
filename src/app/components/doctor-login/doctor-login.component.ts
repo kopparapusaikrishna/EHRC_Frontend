@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DoctorService } from 'src/app/services/doctor.service';
 import { LoginserviceService } from 'src/app/services/loginservice.service';
 
 @Component({
@@ -10,13 +11,11 @@ import { LoginserviceService } from 'src/app/services/loginservice.service';
 export class DoctorLoginComponent implements OnInit {
     model={username:"",password:""}
     getData:any
-    constructor(private loginservice:LoginserviceService,private router : Router) { }
+    constructor(private loginservice:LoginserviceService,private doctorservice:DoctorService,private router : Router) { }
 
     ngOnInit(): void {
       // TODO document why this method 'ngOnInit' is empty
     }
-
-
     logindoctor(){
       //console.log("sff");
       let user=this.model.username;
@@ -26,15 +25,16 @@ export class DoctorLoginComponent implements OnInit {
         alert("Please fill all the fields");
       else{
         this.loginservice.getDoctorData(user,password)
-        .subscribe((res: any) => {
-            this.getData=res;
-            console.log(this.getData);
-            if (this.getData==true){
-                this.router.navigate(["/doctor-dashboard"]);
-            }
-            else{
-              alert("Invalid username and password");
-            }
+        .subscribe((response: any) => {
+          console.log(response);
+          console.log("fsfsf");
+          if (response.token == "not") {
+            // Authenticate user and log them in
+            alert('username and password doesnt match!');
+          } else {
+            localStorage.setItem("doctor_token",JSON.stringify({ doctor_email_id:user,token:response.token}));
+            this.router.navigate(["/doctor-dashboard"]);
+          }
         })
 
       }
